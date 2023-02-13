@@ -5,10 +5,50 @@ body {
 }
 
 .app {
-  margin: 50px 400px;
+  margin: 50px 300px;
   padding: 20px;
-  height: 600px;
+  min-height: 750px;
   background-color: hotpink;
+}
+
+.fileinput {
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+  background-color: lightblue;
+}
+
+.fileinput:hover {
+  background-color: azure;
+  cursor: pointer;
+}
+
+.btn-word-count {
+  border-radius: 10px;
+  margin-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px;
+}
+
+.btn-word-count:hover {
+  background-color: lightblue;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.result-area {
+  margin-top: 50px;
+  display: flex;
+  gap: 200px;
+}
+
+.result-word-count {
+  margin-top: 0;
+  line-height: 1.75;
+}
+
+.kitten {
+  max-width: 400px;
 }
 
 .hidden {
