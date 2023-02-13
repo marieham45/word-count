@@ -9,23 +9,19 @@
   </head>
   <body>
     <div class="app">
-      <input type="file" id="fileinput" /><br /><br />
+      
+      <input type="file" id="fileinput" class="fileinput"/><br /><br />
 
-      <label for="Translation"
-        >Translation
-        <input type="radio" name="select" id="trans" value="trans" />
-      </label>
-      <label for="Proofreading"
-        >Proofreading
-        <input type="radio" name="select" id="proof" value="proof" /></label
-      ><br /><br />
+      
 
-
-        <div class="proof-section">
+        <div>
           <button class="btn-word-count">
             Get Word Counts!
           </button>
-          <div><p class="result-word-count"></p></div>
+          <div class="result-area">
+            <p class="result-word-count"></p>
+            <div class="kitten-area"></div>
+          </div>
         </div>
       </div>
     </div>
