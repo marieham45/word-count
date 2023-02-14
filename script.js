@@ -64,7 +64,7 @@ function readSingleFile(evt) {
         if (lastItem.includes("_")) {
           ending += lastItem[lastItem.length - 6];
           ending += lastItem[lastItem.length - 5];
-          if (ending === "fr") {
+          if (ending === "fr" || ending === "de") {
             ending += "-";
             ending += lastItem[lastItem.length - 3];
             ending += lastItem[lastItem.length - 2];
