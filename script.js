@@ -18,6 +18,8 @@ const inputFileNames = document.querySelector(".file");
 const inputWordCounts = document.querySelector(".word");
 const resultWordCount = document.querySelector(".result-word-count");
 const btnWordCount = document.querySelector(".btn-word-count");
+const numSequence = document.querySelector(".num_sequence");
+const sequenceOutput = document.querySelector(".sequence");
 
 // DATA
 let wordCounts = [];
@@ -33,6 +35,8 @@ const reset = function () {
   fileNameArrayUnique = [];
   wordsReduced = [];
   document.querySelector(".kitten-area").innerHTML = "";
+  sequenceOutput.innerHTML = "";
+  numSequence.value = "";
 };
 
 // FILE UPLOAD
@@ -73,7 +77,6 @@ function readSingleFile(evt) {
           ending += lastItem[lastItem.length - 3];
           ending += lastItem[lastItem.length - 2];
         }
-
         fileNamesArray.push(ending.toUpperCase());
       }
 
@@ -123,4 +126,64 @@ btnWordCount.addEventListener("click", function () {
     fileNameArrayUnique,
     wordsReduced
   )}`;
+  if (numSequence.value !== "") {
+    sequenceOutput.innerHTML = getLangString(
+      numSequence.value,
+      fileNameArrayUnique
+    );
+  }
 });
+
+// ORDER SEQUENCE
+
+// invoicing subjects
+const sro = [
+  "BG",
+  "CS",
+  "EL",
+  "ET",
+  "HR",
+  "HU",
+  "LT",
+  "LV",
+  "PL",
+  "RO",
+  "SL",
+  "SK",
+  "UK",
+];
+const fap = ["ES", "PT"];
+const ntn = ["FR-FR"];
+const ben = ["FR-BE", "NL"];
+const lim = ["EN"];
+const deu = ["DA", "DE-AT", "DE-DE", "FI", "SV"];
+const it = ["IT"];
+
+// processing
+const getLangString = (nums, langs) => {
+  // sorting subjects
+  const langArrayAll = [];
+  langArrayAll.push(langs.filter((lang) => sro.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => fap.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => ntn.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => ben.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => lim.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => deu.includes(lang)));
+  langArrayAll.push(langs.filter((lang) => it.includes(lang)));
+
+  const langArrayPresent = langArrayAll.filter((arr) => arr.length > 0).sort();
+
+  // nums input - string to number
+
+  const numsToNumbers = nums.split(",").map(Number);
+  console.log(numsToNumbers);
+
+  // final output
+  let finalString = "";
+  for (let i = 0; i < langArrayPresent.length; i++) {
+    finalString += `<b>${numsToNumbers[i]}</b> (${langArrayPresent[i].join(
+      ", "
+    )}), `;
+  }
+  return (finalString = finalString.slice(0, -2));
+};
