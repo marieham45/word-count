@@ -152,19 +152,19 @@ const sro = [
   "SK",
   "UK",
 ];
-const fap = ["ES", "PT"];
+// const fap = ["ES", "PT"];
 const ntn = ["FR-FR"];
 const ben = ["FR-BE", "NL"];
 const lim = ["EN"];
 const deu = ["DA", "DE-AT", "DE-DE", "FI", "SV"];
-const it = ["IT"];
+const it = ["ES", "IT", "PT"];
 
 // processing
 const getLangString = (nums, langs) => {
   // sorting subjects
   const langArrayAll = [];
   langArrayAll.push(langs.filter((lang) => sro.includes(lang)));
-  langArrayAll.push(langs.filter((lang) => fap.includes(lang)));
+  // langArrayAll.push(langs.filter((lang) => fap.includes(lang)));
   langArrayAll.push(langs.filter((lang) => ntn.includes(lang)));
   langArrayAll.push(langs.filter((lang) => ben.includes(lang)));
   langArrayAll.push(langs.filter((lang) => lim.includes(lang)));
